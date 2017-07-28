@@ -1,0 +1,7 @@
+services:
+  cocorico.swift_reader.swiftmailer_listener:
+      class: Cocorico\SwiftReaderBundle\EventListener\SwiftmailerListener
+      arguments:
+          - "@cocorico.swift_reader.message_manager"
+      tags:
+          - { name: kernel.event_subscriber }

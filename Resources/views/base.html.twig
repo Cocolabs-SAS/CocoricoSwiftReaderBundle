@@ -1,0 +1,46 @@
+{% trans_default_domain 'cocorico_swift_reader' %}
+{% spaceless %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Swift Reader</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style>
+                html {
+                    position: relative;
+                    min-height: 100%;
+                }
+
+                body {
+                    margin-top: 70px;
+                    margin-bottom: 70px;
+                }
+
+                footer {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 60px;
+                }
+            </style>
+        {% endblock %}
+    </head>
+<body>
+
+    {% include 'CocoricoSwiftReaderBundle::_nav.html.twig' %}
+
+    {% block content '' %}
+
+        {% include 'CocoricoSwiftReaderBundle::_footer.html.twig' %}
+
+    {% block javascripts %}
+        <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% endblock %}
+
+        </body>
+        </html>
+        {% endspaceless %}

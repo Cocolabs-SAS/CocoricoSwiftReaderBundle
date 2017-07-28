@@ -1,0 +1,69 @@
+{% trans_default_domain 'cocorico_swift_reader' %}
+
+{% extends 'CocoricoSwiftReaderBundle::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        object {
+            width: 100%;
+            height: 480px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" data-layout="list">
+        {% include 'CocoricoSwiftReaderBundle:Message:_list.html.twig' %}
+    </div>
+
+    <div class="modal" data-layout="modal"></div>
+
+    <script type="text/html" data-layout="loader">
+        <div class="text-center">
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+        </div>
+    </script>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $(document).on('click', '[data-action]', function () {
+                switch ($(this).data('action')) {
+                    case 'show':
+                        $.ajax({
+                            method: 'GET',
+                            url: $(this).data('action') + '/' + $(this).data('filename'),
+                            success: function (data) {
+                                $('[data-layout="modal"]').html(data).modal();
+                            }
+                        });
+                        break;
+                    case 'delete':
+                        $.ajax({
+                            method: 'GET',
+                            url: $(this).data('action') + '/' + $(this).data('filename'),
+                            success: function (data) {
+                                $('[data-layout="modal"]').modal('hide');
+                                $('[data-layout="list"]').html(data);
+                            }
+                        });
+                        break;
+                    default:
+                        $('[data-layout="list"]').html($('[data-layout="loader"]').html());
+                        $.ajax({
+                            method: 'GET',
+                            url: $(this).data('action'),
+                            success: function (data) {
+                                $('[data-layout="list"]').html(data);
+                            }
+                        });
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{
+  "name": "cocorico/swift-reader-bundle",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "description": "CocoricoSwiftReaderBundle is a free symfony bundle to read emails sent by Swift Mailer.",
+  "keywords": [
+    "mail",
+    "mailer",
+    "email",
+    "reader",
+    "swiftmailer"
+  ],
+  "homepage": "http://cocorico.io",
+  "authors": [
+    {
+      "name": "Cocolabs SAS",
+      "email": "support@cocorico.io"
+    }
+  ],
+  "support": {
+    "email": "support@cocorico.io"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cocorico\\SwiftReaderBundle\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.3.9",
+    "symfony/framework-bundle": "2.8.*",
+    "symfony/swiftmailer-bundle": "2.*"
+  }
+}

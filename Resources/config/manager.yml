@@ -1,0 +1,6 @@
+services:
+  cocorico.swift_reader.message_manager:
+      class: Cocorico\SwiftReaderBundle\Manager\MessageManager
+      arguments:
+          - "@filesystem"
+          - "%kernel.cache_dir%/cocorico_swift_reader"

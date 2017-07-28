@@ -1,0 +1,53 @@
+{% trans_default_domain 'cocorico_swift_reader' %}
+{% spaceless %}
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h4 class="modal-title">{{ 'Message'|trans }}</h4>
+            </div>
+            <div class="modal-body">
+
+                <dl class="dl-horizontal">
+                    <dt>{{ 'Date'|trans }}</dt>
+                    <dd>{{ message.date }}</dd>
+                    {% if message.from|length %}
+                        <dt>{{ 'From'|trans }}</dt>
+                        <dd>{% for address in message.from %}<strong
+                                    class="label label-primary">{{ address }}</strong>{% endfor %}</dd>
+                    {% endif %}
+                    {% if message.to|length %}
+                        <dt>{{ 'To'|trans }}</dt>
+                        <dd>{% for address in message.to %}<strong
+                                    class="label label-primary">{{ address }}</strong>{% endfor %}</dd>
+                    {% endif %}
+                    {% if message.cc|length %}
+                        <dt>{{ 'Cc'|trans }}</dt>
+                        <dd>{% for address in message.cc %}<strong
+                                    class="label label-primary">{{ address }}</strong>{% endfor %}</dd>
+                    {% endif %}
+                    {% if message.bcc|length %}
+                        <dt>{{ 'Bcc'|trans }}</dt>
+                        <dd>{% for address in message.bcc %}<strong
+                                    class="label label-primary">{{ address }}</strong>{% endfor %}</dd>
+                    {% endif %}
+                    <dt>{{ 'Subject'|trans }}</dt>
+                    <dd>{{ message.subject }}</dd>
+                </dl>
+
+                <div class="well well-sm">
+                    <object type="text/html" data="fetch/{{ filename }}"></object>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" data-action="delete" data-filename="{{ filename }}">
+                    <i class="fa fa-fw fa-trash"></i>
+                    <span>{{ 'Delete'|trans }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endspaceless %}

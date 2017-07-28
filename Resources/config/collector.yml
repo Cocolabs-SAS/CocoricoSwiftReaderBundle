@@ -1,0 +1,9 @@
+services:
+    cocorico.swift_reader.collector:
+        class: Cocorico\SwiftReaderBundle\DataCollector\CocoricoSwiftReaderCollector
+        public: false
+        tags:
+            -
+                name: data_collector
+                template: 'CocoricoSwiftReaderBundle::_icon_profiler.html.twig'
+                id: 'cocorico.swift_reader.collector'
