@@ -31,11 +31,11 @@ class SwiftmailerExtension extends \Swift_Mailer
     }
 
     /**
-     * @param \Swift_Mime_Message $message
-     * @param array|null          $failedRecipients
+     * @param \Swift_Mime_SimpleMessage $message
+     * @param array|null                $failedRecipients
      * @return int
      */
-    public function send(\Swift_Mime_Message $message, &$failedRecipients = null)
+    public function send(\Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
     {
 
         $return = parent::send($message, $failedRecipients);

@@ -26,6 +26,10 @@ class CocoricoSwiftReaderCollector extends DataCollector
     {
     }
 
+    public function reset()
+    {
+    }
+
     /**
      * @return string
      */

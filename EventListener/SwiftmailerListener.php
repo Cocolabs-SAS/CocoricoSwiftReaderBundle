@@ -33,6 +33,7 @@ class SwiftmailerListener implements EventSubscriberInterface
 
     /**
      * @param SwiftmailerSendEvent $event
+     * @throws \Symfony\Component\Serializer\Exception\NotEncodableValueException
      */
     public function onSend(SwiftmailerSendEvent $event)
     {

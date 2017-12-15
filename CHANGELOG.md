@@ -15,6 +15,11 @@ and to the [CHANGELOG recommendations](http://keepachangelog.com/).
 
 ### Changed
 
+## [0.15] - (2017-12-15)
+
+### Added
+- Upgrade to SF 3.4
+
 
 ## [0.1] - (2017-07-29)
 

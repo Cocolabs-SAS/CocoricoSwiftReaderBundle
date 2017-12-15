@@ -22,9 +22,9 @@ class MessageDTO
     public $body;
 
     /**
-     * @param \Swift_Mime_Message $message
+     * @param \Swift_Mime_SimpleMessage $message
      */
-    public function fill(\Swift_Mime_Message $message)
+    public function fill(\Swift_Mime_SimpleMessage $message)
     {
         $this->date = (new \DateTime(sprintf('@%d', $message->getDate())))->format('Y-m-d H:i:s');
         $message->getFrom() && $this->from = array_keys($message->getFrom());

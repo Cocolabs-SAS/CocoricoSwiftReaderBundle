@@ -10,7 +10,7 @@
     "reader",
     "swiftmailer"
   ],
-  "homepage": "http://cocorico.io",
+  "homepage": "http://www.cocorico.io",
   "authors": [
     {
       "name": "Cocolabs SAS",
@@ -26,8 +26,8 @@
     }
   },
   "require": {
-    "php": ">=5.3.9",
-    "symfony/framework-bundle": "2.8.*",
-    "symfony/swiftmailer-bundle": "2.*"
+    "php": ">=7.1",
+    "symfony/framework-bundle": "^3.4",
+    "symfony/swiftmailer-bundle": "^6.0"
   }
 }

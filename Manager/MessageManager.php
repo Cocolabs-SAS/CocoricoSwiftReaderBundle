@@ -66,9 +66,10 @@ class MessageManager
     }
 
     /**
-     * @param \Swift_Mime_Message $message
+     * @param \Swift_Mime_SimpleMessage $message
+     * @throws \Symfony\Component\Serializer\Exception\NotEncodableValueException
      */
-    public function write(\Swift_Mime_Message $message)
+    public function write(\Swift_Mime_SimpleMessage $message)
     {
         $filename = sprintf(
             '%s/%s_%s_%s.json',
@@ -92,7 +93,9 @@ class MessageManager
 
     /**
      * @param $filename
-     * @return null|MessageDTO
+     * @return null|object
+     * @throws \RuntimeException
+     * @throws \Symfony\Component\Serializer\Exception\NotEncodableValueException
      */
     public function getOneByFileName($filename)
     {
@@ -110,6 +113,7 @@ class MessageManager
         return null;
     }
 
+    /** @inheritdoc */
     public function deleteByFileName($filename)
     {
         $finder = new Finder();
@@ -117,6 +121,7 @@ class MessageManager
         $this->filesystem->remove($files);
     }
 
+    /** @inheritdoc */
     public function clear()
     {
         $finder = new Finder();
